@@ -1,5 +1,5 @@
 const kafka = require("kafka-node");
-const HighLevelConsumer = kafka.HighLevelConsumerl;
+const HighLevelConsumer = kafka.HighLevelConsumer;
 const Client = kafka.Client;
 
 const client = new Client("localhost:2181");
