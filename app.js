@@ -36,10 +36,12 @@ fs.createReadStream(inputFile).pipe(parser);
 
 function handleData(currentData) {
   let line = dataArray[currentData];
+  var rxScope = dataArray[currentData][4];
   let dataNode = {
     store: line[0],
-    code: line[1],
-    RXCount: line[5]
+    date: line[1],
+    rxScope: rxScope,
+    rxCount: line[5]
   };
   console.log(JSON.stringify(dataNode));
   produceDataMessage(dataNode);
