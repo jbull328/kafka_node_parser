@@ -43,7 +43,7 @@ function handleData(currentData) {
   };
   console.log(JSON.stringify(dataNode));
   produceDataMessage(dataNode);
-  let delay = averageDelay + (Math.random() - 0.5) * spreadInDelay;
+  let delay = 0;
   setTimeout(handleData.bind(null, currentData + 1), delay);
 }
 
