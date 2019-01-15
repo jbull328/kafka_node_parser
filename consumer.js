@@ -14,7 +14,7 @@ const options = {
   encoding: "utf8"
 };
 
-const consumer = new HighLevelConsumer(client, topics, options);
+const consumer = new HighLevelConsumer(client, topics);
 
 consumer.on("message", function(message) {
   console.log("Here is the kafka message... " + JSON.stringify(message));
