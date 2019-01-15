@@ -11,7 +11,7 @@ const topics = [
 
 const options = {
   autoCommit: true,
-  encoding: "JSON"
+  encoding: "utf8"
 };
 
 const consumer = new HighLevelConsumer(client, topics, options);
