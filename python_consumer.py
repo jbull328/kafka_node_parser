@@ -1,11 +1,10 @@
 from kafka import KafkaConsumer
 
-consumer = KafkaConsumer('test', group_id='my_group',
-                         bootstrap_servers=['localhost:9092'])
+consumer = KafkaConsumer('test')
 
 for message in consumer:
-    print("%s:%d:%d: key:%s value:%s" %
-          (message.topic, message.key, message.partition, message.offset, message.value))
+    print("key:%s value:%s" %
+          (message.key, message.value))
 
 KafkaConsumer(auto_offset_reset='earliest', enable_auto_commit=False)
 
