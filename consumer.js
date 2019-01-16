@@ -9,11 +9,6 @@ const topics = [
   }
 ];
 
-const options = {
-  autoCommit: true,
-  encoding: "utf8"
-};
-
 const consumer = new HighLevelConsumer(client, topics);
 
 consumer.on("message", function(message) {
