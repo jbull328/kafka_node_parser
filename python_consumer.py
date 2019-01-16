@@ -1,6 +1,7 @@
 from kafka import KafkaConsumer
 
-consumer = KafkaConsumer('test', group_id='my_group' bootstrap_servers=['localhost:9092'])
+consumer = KafkaConsumer('test', group_id='my_group',
+                         bootstrap_servers=['localhost:9092'])
 
 for message in consumer:
     print("%s:%d:%d: key:%s value:%s" %
