@@ -1,7 +1,7 @@
 from kafka import KafkaProducer, KafkaClient
 from kafka.errors import KafkaError
-from confluent_kafka import avro
-from confluent_kafka.avro import AvroProducer
+# from confluent_kafka import avro
+# from confluent_kafka.avro import AvroProducer
 import csv
 import pandas as pd
 
