@@ -5,11 +5,11 @@ from kafka.errors import KafkaError
 import csv
 import pandas as pd
 
-kafka = KafkaClient('localhost:9092')
-producer = KafkaProducer(kafka)
+
+producer = KafkaProducer(bootstrap_servers='localhost:9092')
 
 topic = 'employees'
 
 employee_data = pd.read_csv('MOCK_Employee_DATA.csv')
 
-producer.send(employee_data)
+producer.send('topic', value=employee_data)
