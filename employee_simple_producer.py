@@ -12,4 +12,4 @@ topic = 'employees'
 
 employee_data = pd.read_csv('MOCK_Employee_DATA.csv')
 
-producer.send('topic', value=employee_data)
+producer.send(topic, employee_data)
