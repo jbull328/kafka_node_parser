@@ -22,8 +22,6 @@ producer.on("error", function(err) {
 });
 
 const inputFile = "testReport.csv";
-var averageDelay = 3000; // in miliseconds
-var spreadInDelay = 2000; // in miliseconds
 
 var dataArray = [];
 
