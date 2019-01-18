@@ -61,3 +61,51 @@ runSinkConnector(config, [converter], onError).then(config => {
         type: "publish"
     }
 */
+
+const config = {
+  kafka: {
+    noptions: {
+      "metadata.broker.list": "localhost:9092",
+      "group.id": "n-test-group",
+      "enable.auto.commit": false,
+      debug: "all",
+      event_cb: true,
+      "client.id": "kcs-test"
+    },
+    tconf: {
+      "auto.offset.reset": "earliest",
+      "request.required.acks": 1
+    }
+  },
+
+  topic: "sc_test_topic",
+  partitions: 1,
+  maxTasks: 1,
+  pollInterval: 2000,
+  produceKeyed: true,
+  produceCompressionType: 0,
+  connector: {
+    options: {
+      host: "localhost",
+      port: 5432,
+      dialect: "sqlite",
+      pool: {
+        max: 5,
+        min: 0,
+        idle: 10000
+      },
+      storage: path.join(__dirname, "test-db.sqlite")
+    },
+    database: null,
+    user: null,
+    password: null,
+    maxPollCount: 50,
+    table: "accounts",
+    incrementingColumnName: "id"
+  },
+  http: {
+    port: 3149,
+    middlewares: []
+  },
+  enableMetrics: true
+};
