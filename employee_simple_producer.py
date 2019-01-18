@@ -8,7 +8,7 @@ import pandas as pd
 
 
 producer = KafkaProducer(
-    bootstrap_servers='localhost:9092', value_serializer=str.encode, api_version=(0, 10))
+    bootstrap_servers='localhost:9092', api_version=(0, 10))
 
 
 topic = 'employees'
