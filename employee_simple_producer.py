@@ -14,7 +14,7 @@ producer = KafkaProducer(
 topic = 'employees'
 
 employee_data = pd.read_csv('MOCK_Employee_DATA.csv').to_json(
-    orient='records')[1:-1].replace('},{', '} {')
+    orient='records', lines=True)
 
 print(employee_data)
 
