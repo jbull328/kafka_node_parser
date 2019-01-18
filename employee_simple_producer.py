@@ -7,8 +7,8 @@ import csv
 import pandas as pd
 
 
-producer = KafkaProducer(bootstrap_servers='localhost:9092',
-                         request_timeout_ms=1000000, api_version_auto_timeout_ms=1000000)
+producer = KafkaProducer(
+    bootstrap_servers='localhost:9092', value_serializer=str.encode)
 
 
 topic = 'employees'
@@ -18,3 +18,5 @@ employee_data = pd.read_csv('MOCK_Employee_DATA.csv')
 producer.send(topic, value=employee_data)
 
 metrics = producer.metrics()
+
+print(metrics)
