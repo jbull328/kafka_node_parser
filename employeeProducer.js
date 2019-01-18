@@ -30,7 +30,7 @@ var parser = parse({ delimiter: "," }, function(err, data) {
   handleData(1);
 });
 
-//End Tempalte data Parse Kafka setup.
+//End Tempalte data Parse Kafka setup.git commit
 fs.createReadStream(inputFile).pipe(parser);
 
 function handleData(currentData) {
@@ -50,14 +50,16 @@ function handleData(currentData) {
 function produceDataMessage(dataNode) {
   (KeyedMessage = kafka.KeyedMessage),
     (dataNodeKM = new KeyedMessage(dataNode.code, JSON.stringify(dataNode))),
-    (payloads = [{ topic: employees, messages: dataNodeKM, partition: 0 }]);
+    (payloads = [{ topic: topic, messages: dataNodeKM, partition: 0 }]);
   if (testProducerReady) {
     producer.send(payloads, function(err, data) {
       console.log(data);
+      if (err) {
+        console.log(
+          "Sorry, TestProducer is not ready yet, failed to produce message to kafka with error ==== " +
+            err
+        );
+      }
     });
-  } else {
-    console.error(
-      "Sorry, TestProducer is not ready yet, failed to produce message to kafka"
-    );
   }
 }
