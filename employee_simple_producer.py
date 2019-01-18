@@ -7,7 +7,8 @@ import csv
 import pandas as pd
 
 
-producer = KafkaProducer(bootstrap_servers=['127.0.0.1:9092'])
+producer = KafkaProducer(bootstrap_servers='127.0.0.1:9092',
+                         request_timeout_ms=1000000, api_version_auto_timeout_ms=1000000)
 
 
 topic = 'employees'
