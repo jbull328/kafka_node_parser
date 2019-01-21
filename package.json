@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "csv-parse": "^4.3.0",
+    "kafka-connect": "^3.7.0",
     "kafka-node": "^3.0.1",
     "sequelize-kafka-connect": "^3.7.0"
   }

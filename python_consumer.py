@@ -8,4 +8,4 @@ for message in consumer:
 
 KafkaConsumer(auto_offset_reset='earliest', enable_auto_commit=False)
 
-KafkaConsumer(consimer_timeout_ms=1000)
+KafkaConsumer(consumer_timeout_ms=1000)

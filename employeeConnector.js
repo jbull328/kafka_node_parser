@@ -43,13 +43,13 @@ const config = {
         min: 0,
         idle: 10000
       },
-      storage: path.join(__dirname, "employees.mysql")
+      storage: path.join(__dirname, "/var/lib/mysql/employees")
     },
     database: "employees",
     user: "root",
     password: "6jyYXlOD71*4Ug3m",
     maxPollCount: 50,
-    table: "emplo",
+    table: "employee",
     incrementingColumnName: "id"
   },
   http: {
