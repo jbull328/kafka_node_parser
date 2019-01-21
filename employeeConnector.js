@@ -36,14 +36,14 @@ const config = {
   connector: {
     options: {
       host: "localhost",
-      port: 5432,
+      port: 3306,
       dialect: "mysql",
       pool: {
         max: 5,
         min: 0,
         idle: 10000
       },
-      storage: path.join(__dirname, "test-db.mysql")
+      storage: path.join(__dirname, "employees.mysql")
     },
     database: null,
     user: null,
