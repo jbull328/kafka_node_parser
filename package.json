@@ -12,6 +12,7 @@
     "csv-parse": "^4.3.0",
     "kafka-connect": "^3.7.0",
     "kafka-node": "^3.0.1",
+    "node-zookeeper-client": "^0.2.3",
     "sequelize-kafka-connect": "^3.7.0"
   }
 }

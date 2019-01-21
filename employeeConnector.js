@@ -46,6 +46,7 @@ const config = {
       storage: path.join(__dirname, "/var/lib/mysql/employees")
     },
     database: "employees",
+    //user and pw needs to be changed to service account!
     user: "root",
     password: "6jyYXlOD71*4Ug3m",
     maxPollCount: 50,
