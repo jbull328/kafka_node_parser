@@ -102,7 +102,7 @@ const converter = ConverterFactory.createSinkSchemaConverter(
   etlFunc
 );
 
-runSinkConnector(config, [converter], onError).then(config => {
+runSinkConnector(config, [converter]).then(config => {
   //runs forever until: config.stop();
 });
 
