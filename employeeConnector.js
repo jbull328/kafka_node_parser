@@ -45,9 +45,9 @@ const config = {
       },
       storage: path.join(__dirname, "employees.mysql")
     },
-    database: null,
-    user: null,
-    password: null,
+    database: "employees",
+    user: "root",
+    password: "6jyYXlOD71*4Ug3m",
     maxPollCount: 50,
     table: "emplo",
     incrementingColumnName: "id"
