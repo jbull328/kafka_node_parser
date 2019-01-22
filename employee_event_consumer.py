@@ -1,15 +1,13 @@
 from kafka import KafkaConsumer
 from kafka.errors import KafkaError
 import json
-from json import dumps
+from json import loads
 
 consumer = KafkaConsumer('employees', bootstrap_servers=['localhost:9092'],
                          value_deserializer=lambda m:
-                         dumps(m).encode('utf-8'), api_version=(0, 10))
+                         loads(m).encode('utf-8'), api_version=(0, 10))
 
-
-consumer = KafkaConsumer(
-    value_deserializer=lambda m: json.dumps(m).encode('ascii')).poll()
 
 for message in consumer:
-        print(message.value)
+    message = message.value
+    print(message)
