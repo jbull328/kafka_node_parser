@@ -8,5 +8,7 @@ consumer = KafkaConsumer('employees', bootstrap_servers=['localhost:9092'],
                          dumps(m).encode('utf-8'), api_version=(0, 10))
 
 
-for message in consumer:
-    print(message)
+consumer = KafkaConsumer(
+    value_deserializer=lambda m: json.dumps(m).encode('ascii')).fetch_messages()
+
+print(consumer.messages)
