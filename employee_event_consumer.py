@@ -1,11 +1,10 @@
-from kafka import KafkaConsumer, KafkaClient
+from kafka import KafkaConsumer
 from kafka.errors import KafkaError
+import json
 
 consumer = KafkaConsumer('employees', bootstrap_servers=['localhost:9092'])
 
+KafkaConsumer(value_deserializer=lambda m: json.loads(m.decode('ascii')))
+
 for message in consumer:
-    # message value and key are raw bytes -- decode if necessary!
-    # e.g., for unicode: `message.value.decode('utf-8')`
-    print("%s: key=%s value=%s" % (message.topic,
-                                   message.key,
-                                   message.value))
+    print(message.value)
