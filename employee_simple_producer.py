@@ -23,7 +23,7 @@ print(employee_data)
 # producer.send(topic, key=employee_data, value=employee_data)
 producer = KafkaProducer(
     value_serializer=lambda m: json.dumps(m).encode('ascii'))
-producer.send(topic, {'key': 'value'})
+producer.send(topic, employee_data)
 metrics = producer.metrics()
 
 print(metrics)
