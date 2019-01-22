@@ -2,7 +2,14 @@ var zookeeper = require("node-zookeeper-client");
 
 var client = zookeeper.createClient("localhost:2181");
 
-client.getChildren(console.log(data));
+client.getChildren("/", function(error, children, stats) {
+  if (error) {
+    console.log(error.stack);
+    return;
+  }
+
+  console.log("Children are: %j.", children);
+});
 
 // var path = process.argv[2];
 
@@ -32,5 +39,3 @@ client.getChildren(console.log(data));
 //   console.log("Connected to ZooKeeper.");
 //   listChildren(client, path);
 // });
-
-client.connect();

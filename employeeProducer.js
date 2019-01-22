@@ -38,7 +38,8 @@ function handleData(currentData) {
   let dataNode = {
     f_name: line[0],
     l_name: line[1],
-    hire_date: line[2]
+    hire_date: line[2],
+    event_id: "emp_chg_01"
   };
   console.log(JSON.stringify(dataNode));
   produceDataMessage(dataNode);
