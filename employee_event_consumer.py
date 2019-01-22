@@ -16,7 +16,9 @@ class Consumer(threading.Thread):
                                  value_deserializer=lambda m: json.loads(m.decode('utf-8')))
         consumer.subscribe(['employees'])
         for message in consumer:
-            print(message)
+            # print(message)
+            if message.event_id == "emp_chng_00":
+                print(message.f_name)
 
 
 def main():
