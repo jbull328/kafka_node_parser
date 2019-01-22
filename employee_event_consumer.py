@@ -9,6 +9,6 @@ consumer = KafkaConsumer('employees', bootstrap_servers=['localhost:9092'],
 
 
 consumer = KafkaConsumer(
-    value_deserializer=lambda m: json.dumps(m).encode('ascii')).fetch_messages()
+    value_deserializer=lambda m: json.dumps(m).encode('ascii')).poll()
 
-print(consumer.messages)
+print("did it work?")
