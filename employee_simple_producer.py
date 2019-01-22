@@ -1,5 +1,6 @@
 from kafka import KafkaProducer, KafkaClient
 from kafka.errors import KafkaError
+import json
 from json import dumps
 import csv
 import pandas as pd
