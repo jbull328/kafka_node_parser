@@ -18,11 +18,11 @@ employee_data.insert(0, "event_id", "emp_chng_00")
 employee_data_json = employee_data.to_json(
     orient='records', lines=True)
 
-print(employee_data)
+print(employee_data_json)
 
 # producer.send(topic, key=employee_data, value=employee_data)
 
-producer.send(topic, {topic: employee_data})
+producer.send(topic, {topic: employee_data_json})
 metrics = producer.metrics()
 
 print(metrics)
