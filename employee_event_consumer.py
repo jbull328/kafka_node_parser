@@ -11,4 +11,5 @@ consumer = KafkaConsumer('employees', bootstrap_servers=['localhost:9092'],
 consumer = KafkaConsumer(
     value_deserializer=lambda m: json.dumps(m).encode('ascii')).poll()
 
-print("did it work?")
+for message in consumer:
+        print(message.value)
