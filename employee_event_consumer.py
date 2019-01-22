@@ -2,12 +2,18 @@ from kafka import KafkaConsumer
 from kafka.errors import KafkaError
 import json
 from json import loads
+import threading
+import logging
+import time
 
-consumer = KafkaConsumer('employees', bootstrap_servers=['localhost:9092'],
-                         value_deserializer=lambda m:
-                         loads(m).encode('utf-8'), api_version=(0, 10))
 
+class Consumer(threading.Thread):
+    daemon = True
 
-for message in consumer:
-    message = message.value
-    print(message)
+    def run(self):
+        consumer = KafkaConsumer(bootstrap_servers='localhost:9092',
+                                 auto_offset_reset='earliest',
+                                 value_deserializer=lambda m: json.loads(m.decode('utf-8')))
+        consumer.subscribe(['my-topic'])
+        for message in consumer:
+            print(message)
