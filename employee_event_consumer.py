@@ -11,7 +11,7 @@ class Consumer(threading.Thread):
     daemon = True
 
     def run(self):
-        consumer = KafkaConsumer(bootstrap_servers='localhost:8182',
+        consumer = KafkaConsumer(bootstrap_servers='localhost:9092',
                                  auto_offset_reset='earliest',
                                  value_deserializer=lambda m: json.dumps(m.decode('utf-8')))
         consumer.poll(['employees'])
