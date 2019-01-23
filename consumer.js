@@ -1,6 +1,6 @@
 const kafka = require("kafka-node");
 const Consumer = kafka.Consumer;
-const client = kafka.Client("localhost:9092");
+const client = kafka.Client("localhost:2181");
 
 topics = [
   {
