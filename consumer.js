@@ -11,7 +11,7 @@ const options = {
   autoCommit: true
 };
 
-const consumer = new kafka.ConsumerStream(client, topics, options);
+const consumer = new kafka.Consumer(client, topics, options);
 
 consumer.on("message", function(message, err) {
   if (err) {
