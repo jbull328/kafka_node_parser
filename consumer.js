@@ -8,8 +8,6 @@ consumer = new Consumer(client, [
   }
 ]);
 
-const consumer = new HighLevelConsumer(client, topic);
-
 consumer.on("message", function(message) {
   console.log(
     "Here is the kafka message... " +
