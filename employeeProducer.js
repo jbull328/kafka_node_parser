@@ -51,7 +51,7 @@ function handleData(currentData) {
 function produceDataMessage(dataNode) {
   (KeyedMessage = kafka.KeyedMessage),
     (dataNodeKM = new KeyedMessage(dataNode.code, JSON.stringify(dataNode))),
-    (payloads = [{ topic: topic, messages: dataNodeKM, partition: 0 }]);
+    (payloads = dataNodeKM);
   if (testProducerReady) {
     producer.send(payloads, function(err, data) {
       console.log(data);
