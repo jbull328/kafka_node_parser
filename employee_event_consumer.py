@@ -17,8 +17,8 @@ class Consumer(threading.Thread):
         consumer.subscribe(['employees'])
         for message in consumer:
             # print(message)
-            if message.event_id == "emp_chng_00":
-                print(message.f_name)
+            if message.key == "event_id":
+                print("its a message")
 
 
 def main():
