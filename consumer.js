@@ -17,7 +17,7 @@ consumer.on("message", function(message, err) {
   if (err) {
     console.log(err);
   } else {
-    console.log("Here is the kafka message... " + JSON.parse(message));
+    console.log("Here is the kafka message... " + message);
   }
 });
 
