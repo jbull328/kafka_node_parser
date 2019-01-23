@@ -18,3 +18,7 @@ consumer.on("message", function(message) {
 consumer.on("error", function(err) {
   console.log("error", err);
 });
+
+process.on("uncaughtException", function(err) {
+  console.log(err);
+});
