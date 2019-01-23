@@ -1,8 +1,8 @@
 const kafka = require("kafka-node");
 const Consumer = kafka.Consumer;
-const client = kafka.KafkaClient("localhost:9092");
+const client = kafka.KafkaClient({ kafkaHost: "localhost:9092" });
 
-consumer = new Consumer(client, [
+const consumer = new Consumer(client, [
   {
     topic: "employees"
   }
@@ -21,4 +21,9 @@ consumer.on("error", function(err) {
 
 consumer.on("uncaughtException", function(err) {
   console.log(err);
+});
+
+const admin = new kafka.Admin(client);
+admin.listTopics((err, res) => {
+  console.log("topics", res);
 });
