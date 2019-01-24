@@ -1,13 +1,14 @@
 from __future__ import print_function
 from datetime import date, datetime, timedelta
 from kafka import KafkaConsumer
+import json
 
 consumer = KafkaConsumer('employees')
 
 
 for message in consumer:
-    data_employee = ()
-    print(message.key, message.value)
+    employee_data_message = json.loads(message.value)
+    print(employee_data_message)
 
 # Make sure data is committed to the database
 
