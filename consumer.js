@@ -13,24 +13,13 @@ const options = {
 
 const consumer = new kafka.Consumer(client, topics, options);
 
-consumer.on("message", function(message, err) {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Here is the kafka message... " + JSON.stringify(message));
-    console.log(message.value.f_name + ": ");
-  }
-});
-
-// consumer.on("error", function(err) {
-//   console.log("error", err);
-// });
-
-// consumer.on("uncaughtException", function(err) {
-//   console.log(err);
-// });
-
-// const admin = new kafka.Admin(client);
-// admin.listTopics((err, res) => {
-//   console.log("topics", res);
-// });
+module.exports = function message_data() {
+  consumer.on("message", function(message, err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Here is the kafka message... " + JSON.stringify(message));
+      console.log(message.value + ": ");
+    }
+  });
+};
