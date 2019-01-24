@@ -25,6 +25,7 @@ function GetMessage(message) {
   });
 }
 
+GetMessage();
 module.exports = {
   GetMessage: GetMessage
 };
