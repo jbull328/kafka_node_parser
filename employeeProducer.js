@@ -50,10 +50,10 @@ function handleData(currentData) {
 //create Keyed message from parsed json data and send it to kafka
 function produceDataMessage(dataNode) {
   (KeyedMessage = kafka.KeyedMessage),
-    (dataNodeKM = new KeyedMessage(dataNode.code, JSON.stringify(dataNode)));
-  // (payloads = dataNodeKM);
+    (dataNodeKM = new KeyedMessage(dataNode.code, JSON.stringify(dataNode))),
+    (payloads = [{ topic: topic, messages: dataNodeKM, partition: 0 }]);
   if (testProducerReady) {
-    producer.send(dataNodeKM, function(err, data) {
+    producer.send(payloads, function(err, data) {
       console.log(data);
       if (err) {
         console.log(
