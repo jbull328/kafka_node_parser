@@ -13,7 +13,8 @@ const options = {
 
 const consumer = new kafka.Consumer(client, topics, options);
 
-module.exports = function message_data() {
+function GetMessage(message) {
+  this.message = message;
   consumer.on("message", function(message, err) {
     if (err) {
       console.log(err);
@@ -22,4 +23,8 @@ module.exports = function message_data() {
       console.log(message.value + ": ");
     }
   });
+}
+
+module.exports = {
+  GetMessage: GetMessage
 };
